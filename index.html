@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>JS Functions</title>
+</head>
+<body>
+    
+    <div class="about-the-functions">
+        <h2 class="heading">About this Project</h2>
+        <p>This is the demonstration of the interview questions that I've been faced in Job interviews. I have documented and made them in a way that I know in my 1,5 year learning. There is a <span>eval()</span> method that is not safe to use in real world projects. The reason is it creates security problems and it won't be good for your other functions work properly AVOID using <span>eval()</span> in your projects! </p>
+    </div>
+    <div class="display-inc-dec">
+        <h2 class="heading">This is Simple function:</h2>
+        <div class="display" id="display">0</div>
+        <div class="btn-container">
+            <button id="decrement">-</button>
+            <button id="clear">Clear</button>
+            <button id="increment">+</button>
+        </div>
+        <pre>
+            <code>
+                const display = document.getElementById('display');
+                const increment = document.getElementById('increment');
+                const decrement = document.getElementById('decrement');
+                const clear = document.getElementById('clear');
+
+
+                let numberDisplaying = 0;
+
+
+                function incrementFunc() {
+                    numberDisplaying += 1;
+                    display.innerHTML = numberDisplaying;
+                }
+
+                function decrementFunc() {
+                    numberDisplaying -=1;
+                    display.innerHTML = numberDisplaying;
+                }
+
+                function clearFunc() {
+                    numberDisplaying = 0;
+                    display.innerHTML = numberDisplaying;
+                }
+
+                increment.addEventListener('click', incrementFunc);
+                decrement.addEventListener('click', decrementFunc);
+                clear.addEventListener('click', clearFunc);
+            </code>
+        </pre>
+    </div>
+    <div class="callback-example">
+        <h2 class="heading">This is Callback function:</h2>
+        <p id="callbacks">Click the button</p>
+        <button id="callback-btn">Say Hello</button>
+        <pre>
+            <code>
+                const callbacksDisp = document.getElementById('callbacks');
+                const callbackBtn = document.getElementById('callback-btn');
+
+                function sayHello() {
+                    callbacksDisp.innerHTML = 'Hello World!';
+                }
+
+                function buttonClicked() {
+                    sayHello();
+                }
+
+                callbackBtn.addEventListener('click', buttonClicked);
+            </code>
+        </pre>
+    </div>
+    <div class="arrow-functions">
+        <h2 class="heading">This is Arrow function:</h2>
+        <p id="arrowDisp">1 2 3 4 5</p>
+        <button id="arrowDoubleBtn">Double It</button>
+        <pre>
+            <code>
+                // Arrow Function example
+
+            const arrowDisp = document.getElementById('arrowDisp');
+            const arrowBtn = document.getElementById('arrowDoubleBtn');
+
+            const numbers = [1, 2, 3, 4, 5];
+            let doubled = []
+
+            function doubleArray() {
+                // this is arrow function
+                doubled = numbers.map(number => number * 2);
+                arrowDisp.textContent = doubled.join('');
+            }
+
+            arrowBtn.addEventListener('click', doubleArray);
+            </code>
+        </pre>
+    </div>
+    <div class="class-function">
+        <h2 class="heading">This is JS Class:</h2>
+        <p id="classDisp"></p>
+        <button id="dogBtn">Dog</button>
+        <button id="catBtn">Cat</button>
+        <pre>
+            <code>
+                // Class in JS example
+
+                /* JS uses Class to create an object. It's a template for create object. 
+                */
+                const displayClass = document.getElementById('classDisp'); 
+                const dogBtn = document.getElementById('dogBtn');
+                const catBtn = document.getElementById('catBtn');
+
+                class Animal{
+                    constructor(name) {
+                        this.name = name
+                    }
+
+                    says() { 
+                        if(this.name === 'Dog' ){
+                            displayClass.textContent = 'Dog Barks!';
+                            console.log(`${this.name} barks`);
+                        } else if (this.name === 'Cat') {
+                            displayClass.textContent = 'Cat Meows!';
+                            console.log(`${this.name} meows`);
+                        }
+                    }
+                }
+
+                const dog = new Animal('Dog');
+                const cat = new Animal('Cat');
+
+
+                dogBtn.addEventListener('click', () => dog.says());
+                catBtn.addEventListener('click', () => cat.says());
+            </code>
+        </pre>
+    </div>
+    <div class="api-example">
+        <h2 class="heading">This is API handle function:</h2>
+        <pre>
+            <code>
+                const form = document.getElementById('asyncForm');
+                const searchInput = document.getElementById('searchData');
+                const searchBtn = document.getElementById('searchBtn');
+                const apiDisplayer = document.getElementById('apiDisplay');
+
+
+                // when button clicked get the iput value
+                searchBtn.addEventListener('click', getInputValue);
+
+
+                function getInputValue() {
+                    let inputValue = searchInput.value;
+                    getApi(inputValue);
+                }
+                // get it from api 
+
+                async function getApi(inputValue) {
+                    const apiKey = YOUR_API_KEY;
+                    const apiUrl = `https://recipe-by-api-ninjas.p.rapidapi.com/v1/recipe/?query=${inputValue}&rapidapi-key=${apiKey}`;
+                    try 
+                    {
+                        let response = await fetch(apiUrl);
+                        let data = await response.json();
+                        if(data) {
+                            show(data);
+                        }else {
+                            apiDisplayer.innerHTML = 'No Recipes Found';
+                            console.log(data);
+                        }
+                    } catch (error) {
+                        console.log(error);
+                        apiDisplayer.innerHTML = 'Error Occured';
+                    }
+
+                }
+
+
+                function show(data) {
+                    apiDisplayer.innerHTML = '';
+                    for(recipe of data) {
+                        let titles = document.createElement('p');
+                        titles.innerHTML = `<b>${recipe.title}</b> <br/> ${recipe.ingredients} <br/><hr> ${recipe.instructions} <br/> <b>${recipe.servings}</b>`;
+                        apiDisplayer.appendChild(titles);
+                    }   
+                }
+                });
+            </code>
+        </pre>
+        <div class="search-container">
+            <input type="text" id="searchData" required>
+            <input type="submit" value="Search" id="searchBtn">
+        </div>
+        <div class="display-container">
+            <p id="apiDisplay"></p>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <script src="/script.js"></script>
+</body>
+</html>
+

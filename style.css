@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --font-family: 'Roboto', sans-serif;
+    --color-primary: rgb(1, 184, 114);
+    --color-light-grey: #444343;
+    --color-dark-grey: #151515;
+    --color-black: #000000;
+    --color-white: #FFFFFF;
+    --color-dark-white: rgb(207, 206, 206);
+    --color-light-pink: #FF1777;
+    --color-pink: #FF0077;
+    --color-dark-pink: #990047;
+}
+
+
+
+body {
+    background: var(--color-black);
+    font-family: var(--font-family);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.heading {
+    font-family: var(--font-family);
+    font-size: 35px;
+    padding: 2rem 0;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: radial-gradient(ellipse, var(--color-primary), var(--color-pink), var(--color-light-pink));
+    -webkit-background-image: radial-gradient(ellipse, var(--color-primary), var(--color-pink), var(--color-light-pink));
+}
+
+button {
+    font-family: var(--font-family);
+    font-size: 28px;
+    line-height: 28px;
+    font-weight: 300;
+    padding: 1rem 1rem;
+    margin: 1rem 0;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    color: var(--color-pink);
+}
+
+#searchBtn {
+    font-family: var(--font-family);
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 200;
+    padding: 1rem 1rem;
+    margin: 1rem 0;
+    cursor: pointer;
+    outline: none;
+}
+
+#clear {
+    background: red;
+    color: var(--color-white);
+}
+
+#searchData {
+    font-family: var(--font-family);
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 200;
+    padding: 1rem 1rem;
+    margin: 1rem 0;
+    outline: none;
+    border: none;
+}
+
+
+.about-the-functions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    padding: 5rem;
+
+}
+
+.about-the-functions p span {
+    color: red;
+    font-size: 25px;
+}
+
+ p {
+    font-family: var(--font-family);
+    font-size: 20px;
+    line-height: 38px;
+    font-weight: 300;
+    padding: 0 2rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    color: white;
+    word-spacing: .2rem;
+}
+
+pre {
+    padding: 2rem;
+    background: var(--color-light-grey);
+    border-radius: 20px;
+}
+code {
+    font-family: var(--font-family);
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 200;
+    padding: 0 2rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    color: var(--color-primary);
+}
+
+.display-inc-dec, .callback-example, .arrow-functions, .class-function, .api-example {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem 0;
+}
+
+.display, #callbacks, #arrowDisp, #classDisp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-light-grey);
+    width: 200px;
+    font-size: 20px;
+    border-radius: 10px;
+    color: var(--color-white);
+    text-align: center;
+}
+
+.search-container {
+    margin: 2rem 0;
+}
+
+
+#apiDisplay p {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 0;
+    padding: 0 5rem;
+    border: 1px solid var(--color-dark-pink);
+    word-spacing: .2rem;
+    color: var(--color-dark-white-white);
+}
+
+#apiDisplay p span {
+    font-size: 25px;
+    font-weight: 400;
+    color: var(--color-dark-pink);
+}
+
+#apiDisplay p hr {
+    height: 2px;
+    background: var(--color-dark-pink);
+    border: none;
+}
